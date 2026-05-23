@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cheng-Chi Lin (Oscar Lin) — AI/ML Solutions Leader</title>
+<style>
+  :root{
+    --navy:#1f3864;
+    --blue:#2e75b6;
+    --blue-soft:#eaf1f8;
+    --ink:#23282f;
+    --muted:#5d6671;
+    --line:#dfe4ea;
+    --bg:#eef1f4;
+    --side-bg:#1f3864;
+    --side-ink:#e8edf4;
+    --side-muted:#a9b8cf;
+    --accent:#f4b400;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--bg);}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",
+      "Microsoft JhengHei",Roboto,Arial,sans-serif;
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    padding:32px 16px;
+  }
+
+  /* ---- Toolbar (screen only) ---- */
+  .toolbar{
+    max-width:880px;margin:0 auto 18px;display:flex;justify-content:flex-end;gap:10px;
+  }
+  .btn{
+    background:var(--navy);color:#fff;border:none;border-radius:7px;
+    padding:9px 18px;font-size:13px;font-weight:600;cursor:pointer;
+    letter-spacing:.02em;transition:background .15s ease,transform .05s ease;
+  }
+  .btn:hover{background:#16294a;}
+  .btn:active{transform:translateY(1px);}
+  .btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--navy);}
+
+  /* ---- Page ---- */
+  .resume{
+    max-width:880px;margin:0 auto;background:#fff;
+    box-shadow:0 8px 38px rgba(20,35,60,.16);
+    display:grid;grid-template-columns:300px 1fr;
+    overflow:hidden;border-radius:4px;
+  }
+
+  /* ---- Header band spans both columns ---- */
+  .header{
+    grid-column:1 / -1;
+    background:linear-gradient(135deg,#1f3864 0%,#2e5a96 100%);
+    color:#fff;padding:34px 40px 30px;
+  }
+  .header h1{
+    font-size:32px;font-weight:700;letter-spacing:.01em;line-height:1.15;
+  }
+  .header .zh{font-size:25px;font-weight:500;color:#cfdcec;margin-left:10px;}
+  .header .role{
+    margin-top:8px;font-size:14.5px;font-weight:500;color:var(--accent);
+    letter-spacing:.06em;text-transform:uppercase;
+  }
+  .contact-bar{
+    margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 22px;
+    font-size:12.7px;color:#dde6f1;
+  }
+  .contact-bar span{display:flex;align-items:center;gap:7px;}
+  .contact-bar .ic{
+    width:15px;height:15px;flex:none;fill:var(--accent);
+  }
+  .contact-bar a{color:#dde6f1;text-decoration:none;}
+  .contact-bar a:hover{color:#fff;text-decoration:underline;}
+
+  /* ---- Sidebar ---- */
+  .sidebar{
+    background:var(--side-bg);color:var(--side-ink);
+    padding:26px 24px 34px;
+  }
+  .sidebar .s-block{margin-bottom:24px;}
+  .sidebar .s-block:last-child{margin-bottom:0;}
+  .s-title{
+    font-size:13px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+    color:#fff;padding-bottom:7px;margin-bottom:11px;
+    border-bottom:2px solid rgba(244,180,0,.55);
+  }
+  .skill-group{margin-bottom:11px;}
+  .skill-group:last-child{margin-bottom:0;}
+  .skill-label{
+    font-size:11.5px;font-weight:700;color:var(--accent);
+    text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;
+  }
+  .skill-val{font-size:12.6px;color:var(--side-ink);line-height:1.5;}
+
+  .tag-wrap{display:flex;flex-wrap:wrap;gap:6px;}
+  .tag{
+    background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);
+    color:#e8edf4;font-size:11.4px;padding:3px 9px;border-radius:11px;
+  }
+
+  .side-list{list-style:none;}
+  .side-list li{
+    font-size:12.5px;color:var(--side-ink);position:relative;
+    padding-left:15px;margin-bottom:7px;line-height:1.45;
+  }
+  .side-list li::before{
+    content:"";position:absolute;left:0;top:7px;width:6px;height:6px;
+    background:var(--accent);border-radius:50%;
+  }
+  .side-list li:last-child{margin-bottom:0;}
+
+  .edu-item{margin-bottom:13px;}
+  .edu-item:last-child{margin-bottom:0;}
+  .edu-deg{font-size:13px;font-weight:700;color:#fff;}
+  .edu-meta{font-size:11.6px;color:var(--side-muted);margin-top:1px;}
+  .edu-extra{font-size:11.4px;color:var(--side-ink);margin-top:3px;font-style:italic;}
+
+  .cert-item{
+    font-size:12.2px;color:var(--side-ink);margin-bottom:9px;
+    padding-left:15px;position:relative;line-height:1.45;
+  }
+  .cert-item:last-child{margin-bottom:0;}
+  .cert-item::before{
+    content:"";position:absolute;left:0;top:6px;width:7px;height:7px;
+    border:2px solid var(--accent);border-radius:2px;
+  }
+
+  .patent-item{
+    background:rgba(255,255,255,.07);border-left:3px solid var(--accent);
+    padding:8px 11px;border-radius:0 4px 4px 0;margin-bottom:9px;
+  }
+  .patent-item:last-child{margin-bottom:0;}
+  .patent-title{font-size:12.2px;font-weight:600;color:#fff;line-height:1.4;}
+  .patent-no{font-size:11px;color:var(--accent);margin-top:2px;letter-spacing:.03em;}
+
+  .lang-row{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:12.5px;margin-bottom:6px;
+  }
+  .lang-row:last-child{margin-bottom:0;}
+  .lang-row .lv{font-size:11px;color:var(--side-muted);}
+
+  /* ---- Main column ---- */
+  .main{padding:26px 34px 34px;}
+  .m-block{margin-bottom:22px;}
+  .m-block:last-child{margin-bottom:0;}
+  .m-title{
+    font-size:16px;font-weight:700;color:var(--navy);
+    text-transform:uppercase;letter-spacing:.08em;
+    display:flex;align-items:center;gap:10px;margin-bottom:12px;
+  }
+  .m-title::after{
+    content:"";flex:1;height:2px;background:var(--line);
+  }
+  .m-title .dot{
+    width:9px;height:9px;background:var(--accent);border-radius:50%;flex:none;
+  }
+
+  .summary{font-size:13px;color:var(--muted);line-height:1.65;}
+  .summary p{margin-bottom:8px;}
+  .summary p:last-child{margin-bottom:0;}
+  .summary strong{color:var(--ink);font-weight:600;}
+
+  /* ---- Experience ---- */
+  .job{
+    position:relative;padding-left:20px;margin-bottom:17px;
+  }
+  .job:last-child{margin-bottom:0;}
+  .job::before{
+    content:"";position:absolute;left:0;top:5px;bottom:-17px;
+    width:2px;background:var(--line);
+  }
+  .job:last-child::before{bottom:auto;height:14px;}
+  .job::after{
+    content:"";position:absolute;left:-3.5px;top:5px;width:9px;height:9px;
+    background:var(--blue);border:2px solid #fff;border-radius:50%;
+    box-shadow:0 0 0 1.5px var(--blue);
+  }
+  .job-head{
+    display:flex;justify-content:space-between;align-items:baseline;
+    flex-wrap:wrap;gap:2px 12px;
+  }
+  .job-co{font-size:14px;font-weight:700;color:var(--ink);}
+  .job-date{
+    font-size:11.3px;font-weight:600;color:#fff;background:var(--blue);
+    padding:2px 9px;border-radius:10px;white-space:nowrap;
+  }
+  .job-role{
+    font-size:12.5px;font-weight:600;color:var(--blue);margin-top:1px;
+  }
+  .job-meta{font-size:11.3px;color:var(--muted);margin-top:1px;}
+  .job-list{list-style:none;margin-top:6px;}
+  .job-list li{
+    font-size:12.2px;color:#3a414b;position:relative;
+    padding-left:14px;margin-bottom:3.5px;line-height:1.5;
+  }
+  .job-list li::before{
+    content:"";position:absolute;left:0;top:7px;width:5px;height:5px;
+    background:var(--blue);border-radius:50%;
+  }
+  .sub-list{list-style:none;margin-top:3px;}
+  .sub-list li{
+    font-size:11.7px;color:var(--muted);position:relative;
+    padding-left:14px;margin-bottom:2.5px;line-height:1.45;
+  }
+  .sub-list li::before{
+    content:"";position:absolute;left:1px;top:6px;width:5px;height:5px;
+    border:1.5px solid var(--blue);border-radius:50%;
+  }
+  .achieve{
+    margin-top:7px;background:var(--blue-soft);
+    border-left:3px solid var(--accent);border-radius:0 4px 4px 0;
+    padding:7px 11px;
+  }
+  .achieve-row{
+    font-size:11.8px;color:var(--navy);line-height:1.45;
+    padding-left:18px;position:relative;margin-bottom:4px;
+  }
+  .achieve-row:last-child{margin-bottom:0;}
+  .achieve-row::before{
+    content:"\1F4A1";position:absolute;left:0;top:0;font-size:11px;
+  }
+  .achieve-row b{font-weight:700;}
+
+  .role-tag{
+    display:inline-block;font-size:10.5px;font-weight:700;
+    background:#fff3cf;color:#8a6500;border:1px solid #e6c64d;
+    padding:1px 7px;border-radius:9px;margin-left:6px;vertical-align:middle;
+  }
+
+  /* ---- Footer note ---- */
+  .foot{
+    grid-column:1 / -1;background:#f5f7f9;border-top:1px solid var(--line);
+    padding:11px 40px;font-size:10.8px;color:#9aa3af;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width:720px){
+    body{padding:14px 8px;}
+    .resume{grid-template-columns:1fr;}
+    .header{padding:26px 22px;}
+    .header h1{font-size:25px;}
+    .main{padding:22px;}
+    .job-head{flex-direction:column;}
+  }
+
+  /* ---- Print ---- */
+  @media print{
+    @page{size:A4;margin:11mm;}
+    html,body{background:#fff;padding:0;}
+    .toolbar{display:none;}
+    .resume{
+      max-width:none;width:100%;box-shadow:none;border-radius:0;
+      display:grid;grid-template-columns:268px 1fr;
+    }
+    .header{padding:22px 26px 18px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .sidebar,.header,.job-date,.achieve,.tag,.foot,.patent-item{
+      -webkit-print-color-adjust:exact;print-color-adjust:exact;
+    }
+    .sidebar{padding:20px 18px;}
+    .main{padding:20px 22px;}
+    .job{break-inside:avoid;page-break-inside:avoid;}
+    .m-block{break-inside:avoid;}
+    .achieve{break-inside:avoid;}
+    .header h1{font-size:26px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<div class="resume">
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <h1>Cheng-Chi Lin (Oscar Lin) <span class="zh">林正淇</span></h1>
+    <div class="role">AI / ML Solutions Leader &nbsp;&bull;&nbsp; Data Science &amp; Statistical Process Control</div>
+    <div class="contact-bar">
+      <span>
+        <svg class="ic" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>
+        <a href="mailto:biobabyface@gmail.com">biobabyface@gmail.com</a>
+      </span>
+      <span>
+        <svg class="ic" viewBox="0 0 24 24"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1z"/></svg>
+        +886-939-858-575
+      </span>
+      <span>
+        <svg class="ic" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+        Zhubei City, Hsinchu County, Taiwan
+      </span>
+    </div>
+  </header>
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+
+    <div class="s-block">
+      <div class="s-title">Core Strengths</div>
+      <ul class="side-list">
+        <li>20+ years of semiconductor industry experience</li>
+        <li>Statistical Process Control (SPC) &amp; data mining expert</li>
+        <li>AI / ML yield improvement in semiconductor manufacturing</li>
+        <li>Six Sigma Black Belt — semiconductor domain</li>
+        <li>Built 2 web-based SPC systems &amp; 1 web-based QMS</li>
+        <li>DOE project leadership; 10+ SPC fab deployments</li>
+        <li>Experienced AI / ML pre-sales technical advisor</li>
+        <li>Strong cross-functional communication &amp; coordination</li>
+      </ul>
+    </div>
+
+    <div class="s-block">
+      <div class="s-title">Technical Skills</div>
+      <div class="skill-group">
+        <div class="skill-label">Programming</div>
+        <div class="tag-wrap">
+          <span class="tag">Python</span><span class="tag">.NET C#</span>
+          <span class="tag">MATLAB</span><span class="tag">Excel VBA</span>
+          <span class="tag">C# WebAPI</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label">ML / Frameworks</div>
+        <div class="tag-wrap">
+          <span class="tag">TensorFlow</span><span class="tag">Random Forest</span>
+          <span class="tag">SVM / SVR</span><span class="tag">XGBoost</span>
+          <span class="tag">Neural Networks</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label">Databases</div>
+        <div class="tag-wrap">
+          <span class="tag">Oracle</span><span class="tag">MS SQL</span>
+          <span class="tag">MySQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label">Web Stack</div>
+        <div class="tag-wrap">
+          <span class="tag">React</span><span class="tag">Angular</span>
+          <span class="tag">Blazor</span><span class="tag">ASP.NET Core</span>
+          <span class="tag">EF Core</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-label">Quality Tools</div>
+        <div class="tag-wrap">
+          <span class="tag">SPC</span><span class="tag">MSA</span>
+          <span class="tag">DOE</span><span class="tag">Six Sigma</span>
+          <span class="tag">ANOVA</span><span class="tag">QC7 Tools</span>
+          <span class="tag">IATF16949</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="s-block">
+      <div class="s-title">Education</div>
+      <div class="edu-item">
+        <div class="edu-deg">M.S. in Information Management</div>
+        <div class="edu-meta">National Yunlin Univ. of Science &amp; Technology &nbsp;|&nbsp; 2001&ndash;2003</div>
+        <div class="edu-extra">Thesis: A Multi-method Analysis Approach to Discover Gene Expression Patterns in B-Cell Lymphoma</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-deg">B.S. in Applied Mathematics</div>
+        <div class="edu-meta">Providence University, Taichung &nbsp;|&nbsp; 1995&ndash;2001</div>
+      </div>
+    </div>
+
+    <div class="s-block">
+      <div class="s-title">Patents</div>
+      <div class="patent-item">
+        <div class="patent-title">Method of Estimating Bound Limit</div>
+        <div class="patent-no">Taiwan &middot; TW 095136456</div>
+      </div>
+      <div class="patent-item">
+        <div class="patent-title">Establishment Method of Control Specification Limit</div>
+        <div class="patent-no">China &middot; CN 101174149</div>
+      </div>
+    </div>
+
+    <div class="s-block">
+      <div class="s-title">Certifications</div>
+      <div class="cert-item">Six Sigma Black Belt — Yuan Ze University (Prof. Chun-Sheng Cheng)</div>
+      <div class="cert-item">Data Mining Methodology &amp; Enterprise Applications — Microsoft Taiwan / Chinese Data Mining Association</div>
+      <div class="cert-item">VLSI Training: Advanced Processing for VLSI Technology — NDL Taiwan</div>
+      <div class="cert-item">VLSI Laboratory: Advanced Processing Equipment — NDL Taiwan</div>
+    </div>
+
+    <div class="s-block">
+      <div class="s-title">Languages</div>
+      <div class="lang-row"><span>Mandarin Chinese</span><span class="lv">Native</span></div>
+      <div class="lang-row"><span>Taiwanese (Hokkien)</span><span class="lv">Native</span></div>
+      <div class="lang-row"><span>English</span><span class="lv">Fluent</span></div>
+    </div>
+
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+
+    <!-- Summary -->
+    <section class="m-block">
+      <div class="m-title"><span class="dot"></span>Professional Summary</div>
+      <div class="summary">
+        <p>Results-driven <strong>AI/ML and Data Science Leader</strong> with 20+ years of semiconductor and manufacturing industry experience, specializing in statistical process control, machine learning, and AI-driven yield and quality improvement.</p>
+        <p>Proven track record of leading cross-functional teams to build and deploy AI platforms — delivering measurable cost savings and operational enhancements across the semiconductor, solar, display, and chemical industries. <strong>Six Sigma Black Belt</strong> and <strong>dual patent holder</strong> in statistical methodologies.</p>
+        <p>Currently seeking opportunities to establish and scale AI centers of excellence — from strategic planning through full deployment.</p>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="m-block">
+      <div class="m-title"><span class="dot"></span>Work Experience</div>
+
+      <!-- AMT -->
+      <div class="job">
+        <div class="job-head">
+          <span class="job-co">Applied Materials Taiwan (AMT)</span>
+          <span class="job-date">Jun 2015 &ndash; Present</span>
+        </div>
+        <div class="job-role">SPC / YMS Deployment Manager &nbsp;&bull;&nbsp; AI / ML Project Manager</div>
+        <div class="job-meta">Reports to Senior Director &nbsp;|&nbsp; Team size: 3&ndash;4 members per project</div>
+        <ul class="job-list">
+          <li>Online SPC system integrated with MES — automated Hold Lot, Hold Equipment, and OCAP triggering.</li>
+          <li>WAT / CP AI system for wafer acceptance testing and chip probing anomaly detection.</li>
+          <li>SPC-to-FDC drill-down: on SPC OOC/OOS, auto-navigates to FDC for equipment root cause (sensor comparison, OOC/OOS Pareto charts).</li>
+          <li>Low Yield-to-FDC drill-down with auto MVA build-up; FDC UVA coverage enhancement via sensor-comparison methodology.</li>
+          <li><strong>NANYA Plastics Epoxy yield improvement (AI-driven):</strong> built ML models on the E3 platform to monitor key quality indices.
+            <ul class="sub-list">
+              <li>Managed full model lifecycle — accuracy monitoring and automated retraining.</li>
+              <li>Deployed image-recognition model to monitor intermediate products with real-time engineer alerts.</li>
+            </ul>
+          </li>
+          <li>Led new-fab SPC implementations at PlayNitride, Winbond, YMTC, SMIC, AOS, InnoScience.</li>
+          <li>Led automotive QMS project (IATF16949) — Quality Review Board &amp; QMS web system (SPC-FMEA-Control Plan-MRB-PCN-OCAP).</li>
+          <li>Led SPC / FDC / AI pre-sales activities, including YMTC SPACE platform introduction.</li>
+        </ul>
+        <div class="achieve">
+          <div class="achieve-row"><b>NANYA Plastics yield improvement:</b> US$14.4M annual gross profit &times; 2% yield gain &asymp; <b>~US$288,000 savings / year</b>.</div>
+        </div>
+      </div>
+
+      <!-- GF -->
+      <div class="job">
+        <div class="job-head">
+          <span class="job-co">GlobalFoundries Singapore (GF)</span>
+          <span class="job-date">Dec 2011 &ndash; May 2015</span>
+        </div>
+        <div class="job-role">SPC Principal Engineer</div>
+        <div class="job-meta">Reports to Deputy Director &nbsp;|&nbsp; Team size: 2&ndash;3 members per project</div>
+        <ul class="job-list">
+          <li>Managed Fab7 daily/weekly/monthly SPC — early detection of high OOC/OOS charts for Fab Head review; drove cross-functional corrective action.</li>
+          <li>Led Salesforce CPK Report Project — designed and built an automated CPK reporting system.</li>
+          <li>Led SPC Control Limit Change Review System; coordinated cross-fab and cross-department rollout.</li>
+          <li>Implemented SPACE Auto Chart Script — data mining for SPC charts with automated anomaly highlighting.</li>
+          <li>Led Tool Matching Project — automated tool-matching system for early detection of high-risk equipment.</li>
+        </ul>
+        <div class="achieve">
+          <div class="achieve-row"><b>Automated SPC anomaly detection:</b> 100 workers &times; 12 months &times; 10% time reduction &asymp; <b>~SGD 360,000 / year</b>.</div>
+          <div class="achieve-row"><b>Early SPC / equipment anomaly detection:</b> reduced wafer scrap by 0.5% CoNC.</div>
+        </div>
+      </div>
+
+      <!-- AUO -->
+      <div class="job">
+        <div class="job-head">
+          <span class="job-co">AU Optronics Corporation (AUO)</span>
+          <span class="job-date">2009 &ndash; 2011</span>
+        </div>
+        <div class="job-role">APC / IT Senior Engineer</div>
+        <ul class="job-list">
+          <li>Developed APC (Advanced Process Control) raw-data preprocessing pipeline.</li>
+          <li>Collaborated with NTHU on a Virtual Measurement project — built neural-network ML models in MATLAB; implemented the VM system in .NET C#.</li>
+          <li>Led PFMEA &amp; Control Plan System project; Lean Six Sigma &amp; QCC/QIT platform; Q-Web / Quality Review Board / QKM project.</li>
+        </ul>
+        <div class="achieve">
+          <div class="achieve-row"><b>Etch VM system:</b> 300 workers &times; 12 months &times; 10% time reduction &asymp; <b>~NTD 18M / year</b>.</div>
+          <div class="achieve-row"><b>AUO quality system:</b> 500 workers &times; 12 months &times; 10% time reduction &asymp; <b>~NTD 30M / year</b>.</div>
+        </div>
+      </div>
+
+      <!-- DelSolar -->
+      <div class="job">
+        <div class="job-head">
+          <span class="job-co">DelSolar (Joint Venture of Delta Electronics)</span>
+          <span class="job-date">2007 &ndash; 2009</span>
+        </div>
+        <div class="job-role">CIM Senior Engineer</div>
+        <ul class="job-list">
+          <li>Built and deployed the Solar Cell Efficiency Analysis System (ASP.NET 2.0 + SQL Server 2005).</li>
+          <li>Built and deployed the Solar Cell SPC System — full SA/SD/coding/implementation/maintenance lifecycle.</li>
+        </ul>
+        <div class="achieve">
+          <div class="achieve-row"><b>SPC web system:</b> &asymp; <b>~NTD 4.5M / year</b> savings.</div>
+          <div class="achieve-row"><b>Efficiency analysis web system:</b> &asymp; <b>~NTD 5.4M / year</b> savings.</div>
+        </div>
+      </div>
+
+      <!-- Powerchip -->
+      <div class="job">
+        <div class="job-head">
+          <span class="job-co">Powerchip Technology Corporation</span>
+          <span class="job-date">2005 &ndash; 2007</span>
+        </div>
+        <div class="job-role">QC Engineer</div>
+        <ul class="job-list">
+          <li><strong>SBL (Statistical Bin Limit) Project:</strong> developed a bootstrap method for non-normal WT/FT data distributions; built an automated VBA system to compute proper SBLs — resolved IBM/Intel audit findings and led to <strong>2 patent publications</strong>.</li>
+          <li>TECN Web System (PM Coordinator) — digitized paper-based Temporary Engineering Change Notes into a web system.</li>
+          <li>Q-Web (Quality Web) System — integrated SPC/MSA/FMEA/Control Plan/PCN/MRB into a unified Quality Review Board.</li>
+          <li>Six Sigma DOE Project — led Litho process improvement; earned Six Sigma Black Belt. Built in-line Tool Matching system.</li>
+        </ul>
+        <div class="achieve">
+          <div class="achieve-row"><b>SBL system:</b> resolved IBM / Intel customer audit issues.</div>
+          <div class="achieve-row"><b>QMS early detection:</b> flagged 250 MRB lots before shipment &asymp; <b>~US$1.8M cost saving</b>.</div>
+        </div>
+      </div>
+
+      <!-- HP -->
+      <div class="job">
+        <div class="job-head">
+          <span class="job-co">Hewlett-Packard (HP)</span>
+          <span class="job-date">2004 &ndash; 2005</span>
+        </div>
+        <div class="job-role">SPC Consultant</div>
+        <ul class="job-list">
+          <li>AUO L6B Fab CIM Project — statistical consultant for the QDI 6th-generation TFT-LCD fab SPC system (ASP.NET + Oracle).</li>
+          <li>Designed and delivered a full SPC web system for the 6th-generation TFT-LCD panel fab.</li>
+        </ul>
+        <div class="achieve">
+          <div class="achieve-row"><b>HP CIM SPC system</b> successfully sold to ASE for NTD 5 million.</div>
+        </div>
+      </div>
+
+      <!-- NCTU -->
+      <div class="job">
+        <div class="job-head">
+          <span class="job-co">National Chiao Tung University (NCTU)</span>
+          <span class="job-date">2003 &ndash; 2004</span>
+        </div>
+        <div class="job-role">Research Assistant — Biochip Lab, Institute of NanoTechnology</div>
+        <ul class="job-list">
+          <li>Implemented a Biochip Analysis System in MATLAB for a National Science Council research project.</li>
+          <li>Published 2 academic papers based on biochip data-analysis research.</li>
+        </ul>
+      </div>
+
+    </section>
+
+  </main>
+
+  <div class="foot">
+    <span>Cheng-Chi Lin (Oscar Lin) &mdash; AI/ML Solutions Leader</span>
+    <span>biobabyface@gmail.com &nbsp;&bull;&nbsp; +886-939-858-575</span>
+  </div>
+
+</div>
